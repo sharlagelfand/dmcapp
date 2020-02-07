@@ -25,7 +25,8 @@ app_ui <- function() {
         )
         ),
         h2("Closest DMC flosses"),
-        shiny::imageOutput("dmc")
+        shiny::imageOutput("dmc"),
+      HTML("Build with <a href = 'https://github.com/sharlagelfand/dmc'>dmc</a>, <a href = 'https://github.com/sharlagelfand/dmcapp'>dmcapp</a>, #rstats, and love by <a href = 'https://twitter.com/sharlagelfand'>Sharla Gelfand</a>")
       )
   )
 }
