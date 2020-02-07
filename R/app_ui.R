@@ -7,21 +7,33 @@ app_ui <- function() {
     fluidPage(
       h1("DMC Color Finder"),
       fluidRow(
-      column(width = 4,
-      colourpicker::colourInput("color", label = "Colour")),
-      column(width = 4,
-      shiny::sliderInput("n", "Number of flosses", value = 1, min = 1, max = 5, step = 1))),
-      h2("Closest DMC flosses"),
-      shiny::imageOutput("dmc")
+        column(
+          width = 3,
+          colourpicker::colourInput("color", label = "Colour")
+        ),
+        column(
+          width = 3,
+          shiny::sliderInput("n", "Number of flosses", value = 1, min = 1, max = 5, step = 1)
+        ),
+        column(
+          width = 3,
+          shiny::selectInput("method", "Nearest colour method",
+            choices = c("euclidean", "cie1976", "cie94", "cie2000", "cmc"),
+            selected = "euclidean",
+            multiple = FALSE
+          )
+        ),
+        h2("Closest DMC flosses"),
+        shiny::imageOutput("dmc")
+      )
     )
   )
 }
 
 #' @import shiny
-golem_add_external_resources <- function(){
-
+golem_add_external_resources <- function() {
   addResourcePath(
-    'www', system.file('app/www', package = 'dmcapp')
+    "www", system.file("app/www", package = "dmcapp")
   )
 
   tags$head(
@@ -30,6 +42,6 @@ golem_add_external_resources <- function(){
     # Add here all the external resources
     # If you have a custom.css in the inst/app/www
     # Or for example, you can add shinyalert::useShinyalert() here
-    #tags$link(rel="stylesheet", type="text/css", href="www/custom.css")
+    # tags$link(rel="stylesheet", type="text/css", href="www/custom.css")
   )
 }
