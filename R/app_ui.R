@@ -5,15 +5,15 @@ app_ui <- function() {
     golem_add_external_resources(),
     # List the first level UI elements here
     fluidPage(
-      h1("DMC Color Finder"),
+      h1("DMC Colour Finder"),
       fluidRow(
         column(
           width = 3,
-          colourpicker::colourInput("color", label = "Colour")
+          colourpicker::colourInput("color", label = "Colour", value = "ff3860")
         ),
         column(
           width = 3,
-          shiny::sliderInput("n", "Number of flosses", value = 1, min = 1, max = 5, step = 1)
+          shiny::sliderInput("n", "Number of flosses", value = 3, min = 1, max = 5, step = 1)
         ),
         column(
           width = 3,
@@ -22,11 +22,11 @@ app_ui <- function() {
             selected = "euclidean",
             multiple = FALSE
           )
+        )
         ),
         h2("Closest DMC flosses"),
         shiny::imageOutput("dmc")
       )
-    )
   )
 }
 
