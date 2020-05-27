@@ -17,7 +17,8 @@ Imports:
     colourpicker,
     magrittr,
     pkgload,
-    magick
+    magick,
+    config
 Remotes: 
     sharlagelfand/dmc
-RoxygenNote: 6.1.1
+RoxygenNote: 7.1.0

@@ -39,7 +39,11 @@ golem_add_external_resources <- function() {
 
   tags$head(
     golem::activate_js(),
-    golem::favicon()
+    golem::favicon(ext = "png"),
+    golem::bundle_resources(
+      path = app_sys("app/www"),
+      app_title = "DMC Colour Finder"
+    )
     # Add here all the external resources
     # If you have a custom.css in the inst/app/www
     # Or for example, you can add shinyalert::useShinyalert() here
